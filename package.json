@@ -1,0 +1,20 @@
+{
+  "name": "best-sample",
+  "version": "1.0.0",
+  "description": "a sample app backend in express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.hootops.com:Platform/sdk-sample-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "redis": "^2.7.1"
+  }
+}

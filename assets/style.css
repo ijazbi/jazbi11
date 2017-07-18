@@ -1,0 +1,16 @@
+.hs_jsonDump {
+    flex: 1 1 auto;
+    overflow: scroll;
+}
+
+.hs_btnCtaSml:focus {
+    outline: none;
+}
+
+.hs_message {
+    flex: 0 1 auto;
+}
+
+.hs_showJsonButton {
+    flex: 0 1 auto;
+}
