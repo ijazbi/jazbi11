@@ -24,6 +24,16 @@ function bindApiButtons() {
     hsp.composeMessage(getSingleElementByClassName('hs_composeMessageInput').value);
   });
 
+  getSingleElementByClassName('hs_saveData').addEventListener('click', function () {
+    hsp.saveData(getSingleElementByClassName('hs_saveDataInput').value, function(){});
+  });
+
+  getSingleElementByClassName('hs_getData').addEventListener('click', function () {
+    hsp.getData(function (data){
+      replaceTextInClass('hs_getDataOutput', data);
+    });
+  });
+
   getSingleElementByClassName('hs_assignItem').addEventListener('click', function () {
     // Generates a 16 character random string to use as the messageId
     // because the messageId must be unique or Hootsuite will return a 500 error.

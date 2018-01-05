@@ -3,10 +3,19 @@ const express = require('express');
 const https = require('https');
 const http = require('http');
 const fs = require('fs');
+const bodyParser = require('body-parser');
 const sha512 = require('js-sha512');
 var Twitter = require('twit');
 
 const app = express();
+
+// create application/json parser
+const jsonParser = bodyParser.json();
+// create application/x-www-form-urlencoded parser
+const urlencodedParser = bodyParser.urlencoded({ extended: true });
+
+app.use(jsonParser);
+app.use(urlencodedParser);
 
 var secret = '';
 
@@ -79,6 +88,19 @@ app.post('/plugin', (req, res) => {
 
 app.get('/modal', (req, res) => {
   res.sendFile(__dirname + '/modal.html');
+});
+
+app.post('/webhooks', (req, res) => {
+  console.log("Webhook content:\n\n%s", JSON.stringify(req.body));
+  res.status(200).end();
+});
+
+//used for webhooks with urlencoded payloads
+app.post('/callbacks', (req, res) => {
+  console.log("Callback content");
+  console.log(req.body);
+
+  res.status(200).send('{"success":true}').end();
 });
 
 // GET /twitterAccounts?account_ids=<comma,separated,ids>
