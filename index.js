@@ -74,9 +74,7 @@ app.get('/gen-token', (req, res) => {
   }
 });
 
-app.get('/', (req, res)) => {
-  res.sendFile(__dirname + '/index.html');
-}
+
 
 app.post('/stream', (req, res) => {
 	res.sendFile(__dirname + '/stream.html');
@@ -154,6 +152,10 @@ app.get('/tweets/:tweetId', (req, res) => {
   } else {
     res.sendStatus(401);
   }
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
 });
 
 // All Hoosuite apps require HTTPS, so in order to host locally
