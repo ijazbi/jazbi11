@@ -22,23 +22,17 @@ var secret = '';
 // Client for hydrating twitter data - ADD YOUR OWN CREDENTIALS
 // Otherwise, app will not show up in plugin list
 
-/*
-try { */
-
-var twitterClient = new Twitter({
-  consumer_key: '',
-  consumer_secret: '',
-  access_token: '',
-  access_token_secret: ''
-});
-
-
-//} catch(error) {
-if (!twitterClient) {
-  console.log('No Twitter API credenitals found');
-}
-  //process.exit(1);
-//}
+// try {
+//   var twitterClient = new Twitter({
+//     consumer_key: '',
+//     consumer_secret: '',
+//     access_token: '',
+//     access_token_secret: ''
+//   });
+// } catch(error) {
+//   console.log('No Twitter API credenitals found');
+//   process.exit(1);
+// }
 
 
 function sleep(ms) {
@@ -78,6 +72,8 @@ app.get('/gen-token', (req, res) => {
                     req.query.url.toString() + secret));
   }
 });
+
+
 
 app.post('/stream', (req, res) => {
 	res.sendFile(__dirname + '/stream.html');
@@ -155,6 +151,10 @@ app.get('/tweets/:tweetId', (req, res) => {
   } else {
     res.sendStatus(401);
   }
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
 });
 
 // All Hoosuite apps require HTTPS, so in order to host locally
