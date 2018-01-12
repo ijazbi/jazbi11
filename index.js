@@ -22,7 +22,6 @@ var secret = '';
 //--- Client for hydrating twitter data - ADD YOUR OWN CREDENTIALS --- 
 //--- Otherwise, app will not show up in plugin list --- 
 
-<<<<<<< HEAD
 try {
   var twitterClient = new Twitter({
     consumer_key: '',
@@ -33,20 +32,6 @@ try {
 } catch(error) {
   console.log('No Twitter API credenitals found');
 }
-=======
-// try {
-//   var twitterClient = new Twitter({
-//     consumer_key: '',
-//     consumer_secret: '',
-//     access_token: '',
-//     access_token_secret: ''
-//   });
-// } catch(error) {
-//   console.log('No Twitter API credenitals found');
-//   process.exit(1);
-// }
->>>>>>> e04ef82612bc112c532328a12c77836be4e58b97
-
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
