@@ -19,20 +19,19 @@ app.use(urlencodedParser);
 
 var secret = '';
 
-// Client for hydrating twitter data - ADD YOUR OWN CREDENTIALS
-// Otherwise, app will not show up in plugin list
+//--- Client for hydrating twitter data - ADD YOUR OWN CREDENTIALS --- 
+//--- Otherwise, app will not show up in plugin list --- 
 
-// try {
-//   var twitterClient = new Twitter({
-//     consumer_key: '',
-//     consumer_secret: '',
-//     access_token: '',
-//     access_token_secret: ''
-//   });
-// } catch(error) {
-//   console.log('No Twitter API credenitals found');
-//   process.exit(1);
-// }
+try {
+  var twitterClient = new Twitter({
+    consumer_key: '',
+    consumer_secret: '',
+    access_token: '',
+    access_token_secret: ''
+  });
+} catch(error) {
+  console.log('No Twitter API credenitals found');
+}
 
 
 function sleep(ms) {
@@ -112,7 +111,7 @@ app.get('/twitterAccounts', (req, res) => {
   if (req.header('secretKey') == 'super_secret') {
     var accountIds = req.query.accountIds;
     if (!accountIds) {
-      res.sendStatus(400);
+      res.status(400).send('Missing Twitter Credentials');
       return;
     } else {
       twitterClient.get('users/lookup', { user_id: accountIds })
