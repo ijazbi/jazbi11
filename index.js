@@ -176,3 +176,6 @@ io.on('connection', function (socket) {
     sendFakeMessages(socket);
   });
 });
+
+app.get('*', function(req, res) {
+    res.redirect('/');
