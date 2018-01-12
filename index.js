@@ -74,6 +74,10 @@ app.get('/gen-token', (req, res) => {
   }
 });
 
+app.get('/', (req, res)) => {
+  res.sendFile(__dirname + '/index.html');
+}
+
 app.post('/stream', (req, res) => {
 	res.sendFile(__dirname + '/stream.html');
 });
@@ -176,6 +180,3 @@ io.on('connection', function (socket) {
     sendFakeMessages(socket);
   });
 });
-
-app.get('*', function(req, res) {
-    res.redirect('/');
