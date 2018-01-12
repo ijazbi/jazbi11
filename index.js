@@ -23,24 +23,19 @@ var secret = '';
 // Otherwise, app will not show up in plugin list
 
 /*
-try { */
-
-var twitterClient = new Twitter({
-  consumer_key: '',
-  consumer_secret: '',
-  access_token: '',
-  access_token_secret: ''
-});
-
-
-//} catch(error) {
-if (!twitterClient) {
+try {
+  var twitterClient = new Twitter({
+    consumer_key: '',
+    consumer_secret: '',
+    access_token: '',
+    access_token_secret: ''
+  });
+} catch(error) {
   console.log('No Twitter API credenitals found');
+  process.exit(1);
 }
-  //process.exit(1);
-//}
 
-
+*/
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
