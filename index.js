@@ -84,6 +84,10 @@ app.post('/plugin', (req, res) => {
   res.sendFile(__dirname + '/plugin.html');
 });
 
+app.get('/plugin', (req, res) => {
+  res.sendFile(__dirname + '/plugin.html');
+});
+
 app.get('/modal', (req, res) => {
   res.sendFile(__dirname + '/modal.html');
 });
