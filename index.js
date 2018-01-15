@@ -23,10 +23,10 @@ var secret = '';
 //--- Otherwise, app will not show up in plugin list --- 
 try {
   var twitterClient = new Twitter({
-    consumer_key: '',
-    consumer_secret: '',
-    access_token: '',
-    access_token_secret: ''
+    consumer_key: process.env.API_KEY,
+    // consumer_secret: '',
+    access_token: process.env.TOKEN,
+    // access_token_secret: ''
   });
 } catch(error) {
   console.log('No Twitter API credenitals found');
