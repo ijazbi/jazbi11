@@ -9,7 +9,9 @@ function sendToAppHandler(data) {
     httpRequest.setRequestHeader('secretKey', 'super_secret')
     httpRequest.send();
     httpRequest.onreadystatechange = function() {
-      var hydratedData = convertTwitterPayload(httpRequest.responseText);
+      var response = httpRequest.responseText;
+      console.log(response)
+      var hydratedData = convertTwitterPayload(response);
       window.localStorage.jsonData = JSON.stringify(hydratedData);
     }
   } else {
