@@ -10,7 +10,7 @@ function sendToAppHandler(data) {
     httpRequest.send();
     httpRequest.onreadystatechange = function() {
       var response = httpRequest.responseText;
-      console.log(response)
+      console.log("response:" + response);
       var hydratedData = convertTwitterPayload(response);
       window.localStorage.jsonData = JSON.stringify(hydratedData);
     }
