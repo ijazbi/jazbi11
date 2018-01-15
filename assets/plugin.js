@@ -12,9 +12,10 @@ function sendToAppHandler(data) {
       var response = httpRequest.responseText;
       if (response !== '' && !once) {
 
-        console.log("response:" + response);
         var hydratedData = convertTwitterPayload(response);
         window.localStorage.jsonData = JSON.stringify(hydratedData);
+      } else {
+        console.log(response);
       }
     }
   } else {
