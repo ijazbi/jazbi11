@@ -19,9 +19,9 @@ app.use(urlencodedParser);
 
 var secret = '';
 
+console.log(process.env);
 //--- Client for hydrating twitter data - ADD YOUR OWN CREDENTIALS --- 
 //--- Otherwise, app will not show up in plugin list --- 
-console.log(process.env.TWITTER_CONSUMER_KEY);
 try {
   var twitterClient = new Twitter({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
