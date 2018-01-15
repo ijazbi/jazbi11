@@ -21,7 +21,6 @@ var secret = '';
 
 //--- Client for hydrating twitter data - ADD YOUR OWN CREDENTIALS --- 
 //--- Otherwise, app will not show up in plugin list --- 
-
 try {
   var twitterClient = new Twitter({
     consumer_key: '',
@@ -70,8 +69,6 @@ app.get('/gen-token', (req, res) => {
                     req.query.url.toString() + secret));
   }
 });
-
-
 
 app.post('/stream', (req, res) => {
 	res.sendFile(__dirname + '/stream.html');
