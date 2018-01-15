@@ -16,7 +16,7 @@ function sendToAppHandler(data) {
         var hydratedData = convertTwitterPayload(response);
         window.localStorage.jsonData = JSON.stringify(hydratedData);
       } else {
-        console.log(response);
+        window.localStorage.jsonData = JSON.stringify({"error":httpRequest.status});
       }
     }
   } else {
