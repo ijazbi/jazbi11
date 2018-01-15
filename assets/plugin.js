@@ -10,9 +10,12 @@ function sendToAppHandler(data) {
     httpRequest.send();
     httpRequest.onreadystatechange = function() {
       var response = httpRequest.responseText;
-      console.log("response:" + response);
-      var hydratedData = convertTwitterPayload(response);
-      window.localStorage.jsonData = JSON.stringify(hydratedData);
+      if (response !== '' && !once) {
+
+        console.log("response:" + response);
+        var hydratedData = convertTwitterPayload(response);
+        window.localStorage.jsonData = JSON.stringify(hydratedData);
+      }
     }
   } else {
     window.localStorage.jsonData = JSON.stringify(data);
