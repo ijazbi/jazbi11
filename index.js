@@ -23,14 +23,14 @@ var secret = '';
 //--- Otherwise, app will not show up in plugin list --- 
 try {
   var twitterClient = new Twitter({
-    // consumer_key: process.env.TWITTER_CONSUMER_KEY,
-    // consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-    // access_token: process.env.TWITTER_ACCESS_TOKEN,
-    // access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
-    consumer_key: "tyBiKO4milKG2jWxO9jN7E3Bw",
-    consumer_secret: "e99yQDwm45VEWQ8l9G9106YyqsSV5snq10pmNbwlCcT6ZCkE0u",
-    access_token: "951957923747397632-t6Vf4Nb87GyNwbrCUPMZDVwhZPuIsCQ",
-    access_token_secret: "WUQSe7DDMaxgcxBrMmNja4Q7oFEaLUjL4XjnBOi2sdExu"
+    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+    access_token: process.env.TWITTER_ACCESS_TOKEN,
+    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+    // consumer_key: "tyBiKO4milKG2jWxO9jN7E3Bw",
+    // consumer_secret: "e99yQDwm45VEWQ8l9G9106YyqsSV5snq10pmNbwlCcT6ZCkE0u",
+    // access_token: "951957923747397632-t6Vf4Nb87GyNwbrCUPMZDVwhZPuIsCQ",
+    // access_token_secret: "WUQSe7DDMaxgcxBrMmNja4Q7oFEaLUjL4XjnBOi2sdExu"
   });
 } catch(error) {
   console.log('No Twitter API credenitals found');
