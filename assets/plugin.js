@@ -11,12 +11,11 @@ function sendToAppHandler(data) {
     httpRequest.onreadystatechange = function() {
       var response = httpRequest.responseText;
       if (httpRequest.status === 200) {
-        console.log(response);
-
         var hydratedData = convertTwitterPayload(response);
         window.localStorage.jsonData = JSON.stringify(hydratedData);
       } else {
-        window.localStorage.jsonData = JSON.stringify({"error":httpRequest.status});
+        console.log(response);
+        window.localStorage.jsonData = JSON.stringify({error:httpRequest.status});
       }
     }
   } else {
@@ -31,7 +30,7 @@ function sendToAppHandler(data) {
 function convertTwitterPayload(response) {
   var data = {};
   var payload = JSON.parse(response);
-
+  console.log(payload);
   // move profile obj
   data.profile = {};
   data.profile = payload.user;
