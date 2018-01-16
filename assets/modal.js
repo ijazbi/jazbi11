@@ -141,7 +141,7 @@ function startEventListeners() {
 document.addEventListener('DOMContentLoaded', function () {
   var data = JSON.parse(window.localStorage.jsonData);
   if ("error" in data) {
-    console.log("error");
+    console.log("error:", data.error);
   } else {
     populateMessage(data);
     startEventListeners();
