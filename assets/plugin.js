@@ -11,8 +11,6 @@ function sendToAppHandler(data) {
     httpRequest.onreadystatechange = function() {
       var response = httpRequest.responseText;
       if (httpRequest.status === 200) {
-        console.log(response);
-
         var hydratedData = convertTwitterPayload(response);
         window.localStorage.jsonData = JSON.stringify(hydratedData);
       } else {
