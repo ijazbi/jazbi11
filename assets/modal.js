@@ -141,7 +141,7 @@ function startEventListeners() {
 document.addEventListener('DOMContentLoaded', function () {
   var data = JSON.parse(window.localStorage.jsonData);
   if ("error" in data) {
-    getSingleElementByClassName().style.display = "block";
+    getSingleElementByClassName('error').style.display = 'block';
   }
   populateMessage(data);
   startEventListeners();
