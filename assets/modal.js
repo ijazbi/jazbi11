@@ -142,8 +142,10 @@ document.addEventListener('DOMContentLoaded', function () {
   var data = JSON.parse(window.localStorage.jsonData);
   if ("error" in data) {
     console.log("error");
+  } else {
+    populateMessage(data);
+    startEventListeners();
+    googleAuthInit();
   }
-  populateMessage(data);
-  startEventListeners();
-  googleAuthInit();
+
 });
