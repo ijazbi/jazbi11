@@ -140,6 +140,9 @@ function startEventListeners() {
 // for our purposes this is the same thing as jQuery's  $(document).ready(...)
 document.addEventListener('DOMContentLoaded', function () {
   var data = JSON.parse(window.localStorage.jsonData);
+  if (error in data) {
+    console.log("error");
+  }
   populateMessage(data);
   startEventListeners();
   googleAuthInit();
