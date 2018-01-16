@@ -14,7 +14,7 @@ function sendToAppHandler(data) {
         var hydratedData = convertTwitterPayload(response);
         window.localStorage.jsonData = JSON.stringify(hydratedData);
       } else {
-        window.localStorage.jsonData = JSON.stringify({"error":httpRequest.status});
+        window.localStorage.jsonData = JSON.stringify({error:httpRequest.status});
       }
     }
   } else {
@@ -29,7 +29,7 @@ function sendToAppHandler(data) {
 function convertTwitterPayload(response) {
   var data = {};
   var payload = JSON.parse(response);
-
+  console.log(payload);
   // move profile obj
   data.profile = {};
   data.profile = payload.user;
