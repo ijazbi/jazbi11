@@ -146,6 +146,4 @@ document.addEventListener('DOMContentLoaded', function () {
   populateMessage(data);
   startEventListeners();
   googleAuthInit();
-
-
 });

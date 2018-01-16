@@ -29,7 +29,6 @@ function sendToAppHandler(data) {
 function convertTwitterPayload(response) {
   var data = {};
   var payload = JSON.parse(response);
-  console.log(payload);
   // move profile obj
   data.profile = {};
   data.profile = payload.user;
