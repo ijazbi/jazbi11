@@ -140,6 +140,7 @@ function startEventListeners() {
 // for our purposes this is the same thing as jQuery's  $(document).ready(...)
 document.addEventListener('DOMContentLoaded', function () {
   var data = JSON.parse(window.localStorage.jsonData);
+  //currently handling displaying http errors this way but it can be improved on
   if ("error" in data) {
     getSingleElementByClassName('error').style.display = 'block';
   }
