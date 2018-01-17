@@ -23,10 +23,10 @@ var secret = '';
 //--- Otherwise, app will not show up in plugin list --- 
 try {
   var twitterClient = new Twitter({
-    consumer_key: '',
-    consumer_secret: '',
-    access_token: '',
-    access_token_secret: ''
+    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+    access_token: process.env.TWITTER_ACCESS_TOKEN,
+    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
   });
 } catch(error) {
   console.log('No Twitter API credenitals found');
@@ -81,6 +81,10 @@ app.get('/stream', (req, res) => {
 app.use('/assets', express.static('assets'));
 
 app.post('/plugin', (req, res) => {
+  res.sendFile(__dirname + '/plugin.html');
+});
+
+app.get('/plugin', (req, res) => {
   res.sendFile(__dirname + '/plugin.html');
 });
 

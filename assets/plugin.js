@@ -9,8 +9,13 @@ function sendToAppHandler(data) {
     httpRequest.setRequestHeader('secretKey', 'super_secret')
     httpRequest.send();
     httpRequest.onreadystatechange = function() {
-      var hydratedData = convertTwitterPayload(httpRequest.responseText);
-      window.localStorage.jsonData = JSON.stringify(hydratedData);
+      var response = httpRequest.responseText;
+      if (httpRequest.status === 200) {
+        var hydratedData = convertTwitterPayload(response);
+        window.localStorage.jsonData = JSON.stringify(hydratedData);
+      } else {
+        window.localStorage.jsonData = JSON.stringify({error:httpRequest.status});
+      }
     }
   } else {
     window.localStorage.jsonData = JSON.stringify(data);
@@ -24,7 +29,6 @@ function sendToAppHandler(data) {
 function convertTwitterPayload(response) {
   var data = {};
   var payload = JSON.parse(response);
-
   // move profile obj
   data.profile = {};
   data.profile = payload.user;
