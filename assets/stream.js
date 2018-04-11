@@ -120,6 +120,10 @@ function bindApiButtons() {
   });
 
   getSingleElementByClassName('hs_logout').addEventListener('click', signOut);
+
+  getSingleElementByClassName('hs_showGeolocation').addEventListener('click', function () {
+    getGeolocation();
+  });
 }
 
 function loadTopBars() {
@@ -151,6 +155,26 @@ function loadTopBars() {
       }
     });
   });
+}
+
+function getGeolocation() {
+  function success(pos) {
+    let coords = pos.coords;
+    let lngLat = coords.longitude + ' ' + coords.latitude;
+
+    console.log('Your current position is:');
+    console.log(`Latitude : ${coords.latitude}`);
+    console.log(`Longitude: ${coords.longitude}`);
+    console.log(`Within ${coords.accuracy} meters.`);
+
+    replaceTextInClass('hs_showGeolocation', lngLat);
+  }
+  function error(err) {
+    replaceTextInClass('hs_showGeolocation', 'No location');
+    console.warn('Could not get Geolocation', err);
+  }
+  replaceTextInClass('hs_showGeolocation', 'Loading...');
+  navigator.geolocation.getCurrentPosition(success, error);
 }
 
 // for our purposes this is the same thing as jQuery's  $(document).ready(...)
