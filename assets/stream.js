@@ -165,7 +165,7 @@ function getGeolocation() {
   }
   function error(err) {
     replaceTextInClass('hs_showGeolocation', 'No location');
-    console.warn('Could not get Geolocation', err);
+    alert('Could not get Geolocation. Check your browser location privacy settings.', err);
   }
   replaceTextInClass('hs_showGeolocation', 'Loading...');
   navigator.geolocation.getCurrentPosition(success, error);
