@@ -12,7 +12,7 @@ function populateMessage(data) {
   appendTextToClass('hs_jsonDump', prettyJSONData);
 
   // finds network-specific information
-  var avatarURL = 'https://d12qyuqyvqjkw5.cloudfront.net/v2/images/dashboard/avatars/member-default-100.d3442c37.svg';
+  var avatarURL = 'http://static.hootsuite.com/v2/images/dashboard/avatars/member-default-100.d3442c37.svg';
   var displayName = 'Unknown';
   var profileURL = 'https://hootsuite.com/';
   if (typeof data.profile === "undefined") {
