@@ -64,8 +64,7 @@ The Sample App can be hosted locally, or on Heroku or some other hosting service
 1. Edit your app in [My Apps](https://hootsuite.com/developers/my-apps)
 2. Under "Authentication Type" select "Single Sign-On (SHA-512)"
 3. Create a shared secret (preferably by randomly generating it) and enter it into the "Shared Secret" field and hit save at the bottom of the page.
-4. Create a file called `secret.txt` in the root directory of your copy of this repo.
-5. Paste the Shared Secret into this file (no special format, this file should contain your secret and nothing else) and you should be good to go!
+4. Paste the Shared Secret into .env, run `heroku config:push` and you should be good to go!
 
 ### Configuring your Google client ID
 

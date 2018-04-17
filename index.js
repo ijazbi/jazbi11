@@ -48,13 +48,11 @@ async function sendFakeMessages(socket) {
   socket.emit('stream update', 'i\'m good too');
 }
 
-// Create a file called secret.txt and paste your secret into it,
-// use an environment variable, or save it in another secure way.
-// Make sure not to push it version control!
+// See "Configuring your Shared Secret" section in README.md
 try {
-  secret = fs.readFileSync('secret.txt').toString();
+  secret = process.env.SHARED_SECRET;
 } catch (err) {
-  console.log('You must create a secret.txt file and populate it as described in the README');
+  console.log('SHARED_SECRET is missing from .env');
 }
 
 app.get('/gen-token', (req, res) => {
