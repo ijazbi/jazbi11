@@ -104,3 +104,17 @@ function googleAuthInit() {
     }
   });
 }
+
+function getGeolocation() {
+  function success(pos) {
+    let coords = pos.coords;
+    let lngLat = coords.longitude + ' ' + coords.latitude;
+    replaceTextInClass('hs_showGeolocation', lngLat);
+  }
+  function error(err) {
+    replaceTextInClass('hs_showGeolocation', 'No location');
+    alert('Could not get Geolocation. Check your browser location privacy settings.', err);
+  }
+  replaceTextInClass('hs_showGeolocation', 'Loading...');
+  navigator.geolocation.getCurrentPosition(success, error);
+}

@@ -117,6 +117,10 @@ function startEventListeners() {
     replaceTextInClass('hs_copyJsonButton', 'Copied!');
   });
 
+  getSingleElementByClassName('hs_showGeolocation').addEventListener('click', function () {
+    getGeolocation();
+  });
+
   // sets up dropdown menu
   var topBarControl = getSingleElementByClassName('hs_topBarControlsBtn');
   topBarControl.addEventListener('click', function (event) {
